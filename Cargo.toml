@@ -1,0 +1,27 @@
+[package]
+name = "wgpu-window"
+version = "0.1.0"
+edition = "2024"
+authors = ["Saad Moazzam"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+cfg-if = "1.0.0"
+env_logger = "0.11.6"
+log = "0.4.26"
+wgpu = "24.0.1"
+winit = { version = "0.29.15", features = ["rwh_05"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1.7"
+console_log = "1.0.0"
+wgpu = { version = "24.0.1", features = ["webgl"]}
+wasm-bindgen = "0.2.100"
+wasm-bindgen-futures = "0.4.50"
+web-sys = { version = "0.3.77", features = [
+    "Document",
+    "Window",
+    "Element",
+]}
